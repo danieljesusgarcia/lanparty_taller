@@ -170,6 +170,76 @@ def test_complet(semafor):
 
 
 # =============================================================================
+# TASQUES INTERACTIVES (Amb input de l'usuari)
+# =============================================================================
+
+def sequencia_amb_temps_personalitzat(semafor):
+    """
+    TASCA INTERACTIVA 1: Seqüència amb temps que tries tu!
+    
+    Demana a l'usuari quants segons vol que estigui cada llum encès
+    i crea una seqüència personalitzada.
+    
+    Mètodes que necessites:
+    - semafor.demanar_numero("pregunta", default=2, minim=1, maxim=10)
+    - semafor.encendre_llum("color")
+    - semafor.esperar(segons)
+    
+    Exemple de codi:
+        segons_verd = semafor.demanar_numero("Quants segons en verd?", default=2)
+        semafor.encendre_llum("verd")
+        semafor.esperar(segons_verd)
+        
+        # Continua amb groc i vermell...
+    """
+    # ESCRIU EL TEU CODI AQUÍ
+    pass
+
+
+def parpelleig_personalitzat(semafor):
+    """
+    TASCA INTERACTIVA 2: Parpelleig amb opcions de l'usuari
+    
+    Demana a l'usuari:
+    1. Quin color vol fer parpallejar
+    2. Quantes vegades vol que parpellegi
+    
+    Mètodes que necessites:
+    - semafor.triar_color()  # Retorna "verd", "groc" o "vermell"
+    - semafor.demanar_numero("pregunta", default=3)
+    - semafor.parpallejar(color, vegades)
+    
+    Exemple de codi:
+        color = semafor.triar_color()
+        vegades = semafor.demanar_numero("Quantes vegades?", default=3, minim=1, maxim=20)
+        semafor.parpallejar(color, vegades)
+    """
+    # ESCRIU EL TEU CODI AQUÍ
+    pass
+
+
+def missatge_personalitzat(semafor):
+    """
+    TASCA INTERACTIVA 3: Mostra un missatge personalitzat
+    
+    Demana a l'usuari que escrigui un missatge i mostra'l a la pantalla
+    mentre el semàfor fa una animació.
+    
+    Mètodes que necessites:
+    - semafor.demanar_text("pregunta", default="")
+    - semafor.mostrar_text("missatge")
+    - semafor.parpallejar() o semafor.encendre_llum()
+    
+    Exemple de codi:
+        missatge = semafor.demanar_text("Escriu un missatge:", default="Hola!")
+        semafor.mostrar_text(missatge)
+        semafor.parpallejar("verd", vegades=2)
+    """
+    # ESCRIU EL TEU CODI AQUÍ
+    pass
+
+
+# =============================================================================
 # PROVES DE LES TEVES FUNCIONS (Opcional)
 # =============================================================================
 
@@ -270,6 +340,10 @@ if __name__ == "__main__":
         'apagar_tots': apagar_tots,
         'sequencia_normal': sequencia_normal,
         'mode_nocturn': mode_nocturn,
+        # Funcions interactives (amb input de l'usuari)
+        'sequencia_amb_temps_personalitzat': sequencia_amb_temps_personalitzat,
+        'parpelleig_personalitzat': parpelleig_personalitzat,
+        'missatge_personalitzat': missatge_personalitzat,
     }
     
     # Crear i iniciar el semàfor

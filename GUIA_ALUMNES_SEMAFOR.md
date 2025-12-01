@@ -215,6 +215,81 @@ Comprova que tot funciona correctament:
 
 ---
 
+## 🎮 TASQUES INTERACTIVES (Amb Input de l'Usuari)
+
+Aquestes tasques són més avançades i utilitzen **diàlegs** per demanar informació a l'usuari!
+
+### Tasca Interactiva 1: Seqüència amb Temps Personalitzat ⭐⭐⭐
+
+**Objectiu**: Crear una seqüència on l'usuari tria quants segons vol cada llum.
+
+**Nous mètodes que aprendràs**:
+- `semafor.demanar_numero("pregunta", default=2, minim=1, maxim=10)` - Mostra un diàleg per demanar un número
+
+**Què has de fer**:
+1. Demanar quants segons vol el verd
+2. Demanar quants segons vol el groc
+3. Demanar quants segons vol el vermell
+4. Fer la seqüència amb aquests temps
+
+**Solució**:
+```python
+def sequencia_amb_temps_personalitzat(semafor):
+    segons_verd = semafor.demanar_numero("Quants segons en verd?", default=2, minim=1, maxim=10)
+    segons_groc = semafor.demanar_numero("Quants segons en groc?", default=1, minim=1, maxim=10)
+    segons_vermell = semafor.demanar_numero("Quants segons en vermell?", default=2, minim=1, maxim=10)
+    
+    semafor.encendre_llum("verd")
+    semafor.esperar(segons_verd)
+    semafor.encendre_llum("groc")
+    semafor.esperar(segons_groc)
+    semafor.encendre_llum("vermell")
+    semafor.esperar(segons_vermell)
+    semafor.apagar_tots()
+```
+
+**Prova-ho**: Clica el botó "⏱️ Temps Custom" i tria els teus temps!
+
+---
+
+### Tasca Interactiva 2: Parpelleig Personalitzat ⭐⭐⭐
+
+**Objectiu**: L'usuari tria el color i quantes vegades vol que parpellegi.
+
+**Nous mètodes**:
+- `semafor.triar_color()` - Mostra un diàleg per triar color (retorna "verd", "groc" o "vermell")
+
+**Solució**:
+```python
+def parpelleig_personalitzat(semafor):
+    color = semafor.triar_color()
+    vegades = semafor.demanar_numero("Quantes vegades?", default=3, minim=1, maxim=20)
+    semafor.parpallejar(color, vegades=vegades)
+```
+
+**Prova-ho**: Clica "✨ Parpelleig Custom"
+
+---
+
+### Tasca Interactiva 3: Missatge Personalitzat ⭐⭐
+
+**Objectiu**: Mostra un missatge que escriu l'usuari amb una animació.
+
+**Nous mètodes**:
+- `semafor.demanar_text("pregunta", default="")` - Mostra un diàleg per escriure text
+
+**Solució**:
+```python
+def missatge_personalitzat(semafor):
+    missatge = semafor.demanar_text("Escriu un missatge:", default="Hola!")
+    semafor.mostrar_text(f"💬 {missatge}")
+    semafor.parpallejar("verd", vegades=2, interval=0.3)
+```
+
+**Prova-ho**: Clica "💬 Missatge"
+
+---
+
 ## 🚀 Reptes Extra (Opcionals)
 
 Si has acabat abans de temps, prova aquests reptes:

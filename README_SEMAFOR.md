@@ -87,7 +87,39 @@ sudo apt-get install python3-tk
 - **Codi**: 1 línia
 - **Temps**: 5 min
 
-**TOTAL**: 6 funcions (~12 línies de codi efectiu)
+**TOTAL BÀSIC**: 6 funcions (~12 línies de codi efectiu)
+
+---
+
+## 🎮 Tasques Interactives (Opcionals)
+
+Aquestes tasques introdueixen **interacció amb l'usuari** mitjançant diàlegs:
+
+### Tasca I1: Seqüència amb Temps Personalitzat
+- **Dificultat**: ⭐⭐⭐
+- **Conceptes**: input d'usuari (números), variables, seqüències
+- **Mètodes nous**: `demanar_numero()`
+- **Codi**: 9 línies
+- **Temps**: 10-15 min
+- **Aprenen**: Com demanar informació a l'usuari i utilitzar-la
+
+### Tasca I2: Parpelleig Personalitzat
+- **Dificultat**: ⭐⭐⭐
+- **Conceptes**: input d'usuari (text), validació
+- **Mètodes nous**: `triar_color()`
+- **Codi**: 3 línies
+- **Temps**: 8-10 min
+- **Aprenen**: Com validar opcions limitades
+
+### Tasca I3: Missatge Personalitzat
+- **Dificultat**: ⭐⭐
+- **Conceptes**: input de text, interpolació de strings
+- **Mètodes nous**: `demanar_text()`
+- **Codi**: 3 línies
+- **Temps**: 5-8 min
+- **Aprenen**: Treballar amb text de l'usuari
+
+**TOTAL AMB INTERACTIVES**: 9 funcions (~27 línies de codi efectiu)
 
 ## 🎓 Metodologia Docent
 
@@ -116,6 +148,14 @@ sudo apt-get install python3-tk
 - Mostrar com `esperar()` crea pauses
 - Deixar que experimentin amb temps diferents
 - Fomentar creativitat
+
+**Fase 3 - Interaccions (Tasques I1-I3)** [20-30 min] - *OPCIONAL*:
+- Només per alumnes avançats o si hi ha temps extra
+- Introduir el concepte de **diàleg** amb l'usuari
+- Mostrar com un programa pot "preguntar" i "escoltar"
+- Tasca I3 és la més senzilla (bon punt d'entrada)
+- Tasques I1 i I2 requereixen més reflexió sobre variables
+- Èmfasi: "El programa ara és **conversacional**"
 
 **Fase 3 - Testing i Celebració** [5 min]:
 - Provar tots els botons
@@ -166,9 +206,17 @@ Combinar tots els mètodes per crear un espectacle visual
 - ✅ Comprèn el concepte d'objecte i mètode
 
 ### Rúbrica (opcional)
-- **Excel·lent (9-10)**: Totes les tasques + almenys 1 repte extra creatiu
+
+**Sense tasques interactives:**
+- **Excel·lent (9-10)**: Totes les 6 tasques + almenys 1 repte extra creatiu
 - **Notable (7-8)**: Totes les 6 tasques completades i funcionant
 - **Bé (6-7)**: Tasques 1-4 correctes + intent de tasca 5
+- **Suficient (5-6)**: Almenys tasques 1-4 correctes
+
+**Amb tasques interactives:**
+- **Excel·lent (9-10)**: Totes 9 tasques (6 bàsiques + 3 interactives) funcionant
+- **Notable (7-8)**: 6 tasques bàsiques + almenys 1 interactiva
+- **Bé (6-7)**: Totes 6 tasques bàsiques correctes
 - **Suficient (5-6)**: Almenys tasques 1-4 correctes
 
 ## 🛠️ Resolució de Problemes
@@ -195,9 +243,15 @@ sudo apt-get install python3-tk
 - **Simplicitat**: Aquest taller és més simple que la calculadora (només crides de mètodes)
 - **Visual**: Els resultats són immediats i molt visuals
 - **Motivació**: Els semàfors són familiars i divertits de programar
-- **Progressió**: De 1 línia (tasca 1) a 7 línies (tasca 5)
+- **Progressió**: De 1 línia (tasca 1) a 7 línies (tasca 5), fins a 9 línies (interactives)
 - **Errors comuns**: Oblidar cometes en els colors, oblidar paràmetre `semafor`
 - **Punt fort**: Zero lògica condicional complexa!
+- **Tasques interactives**: Opcional, però ideal per introduir el concepte d'**entrada d'usuari**
+- **Diàlegs**: Les funcions `demanar_numero()`, `demanar_text()` i `triar_color()` amaguen la complexitat de Tkinter
+- **Ordre recomanat per interactives**: I3 (missatge) → I2 (parpelleig) → I1 (temps custom)
+- **Temps total estimat**: 
+  - Només bàsiques (6 tasques): 45-60 min
+  - Amb interactives (9 tasques): 75-90 min
 - **Creativitat**: La tasca 5 permet molta experimentació amb temps
 
 ## 💡 Consells Didàctics

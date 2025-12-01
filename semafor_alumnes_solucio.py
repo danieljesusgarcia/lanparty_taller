@@ -79,6 +79,40 @@ def test_complet(semafor):
 
 
 # =============================================================================
+# TASQUES INTERACTIVES (SOLUCIÓ)
+# =============================================================================
+
+def sequencia_amb_temps_personalitzat(semafor):
+    """Seqüència amb temps personalitzats per l'usuari."""
+    segons_verd = semafor.demanar_numero("Quants segons en verd?", default=2, minim=1, maxim=10)
+    segons_groc = semafor.demanar_numero("Quants segons en groc?", default=1, minim=1, maxim=10)
+    segons_vermell = semafor.demanar_numero("Quants segons en vermell?", default=2, minim=1, maxim=10)
+    
+    semafor.encendre_llum("verd")
+    semafor.esperar(segons_verd)
+    semafor.encendre_llum("groc")
+    semafor.esperar(segons_groc)
+    semafor.encendre_llum("vermell")
+    semafor.esperar(segons_vermell)
+    semafor.apagar_tots()
+
+
+def parpelleig_personalitzat(semafor):
+    """Parpelleig amb color i vegades triats per l'usuari."""
+    color = semafor.triar_color()
+    vegades = semafor.demanar_numero("Quantes vegades vols que parpellegi?", default=3, minim=1, maxim=20)
+    semafor.parpallejar(color, vegades=vegades)
+
+
+def missatge_personalitzat(semafor):
+    """Mostra un missatge personalitzat amb animació."""
+    missatge = semafor.demanar_text("Escriu un missatge:", default="Hola!")
+    semafor.mostrar_text(f"💬 {missatge}")
+    semafor.parpallejar("verd", vegades=2, interval=0.3)
+    semafor.mostrar_text(f"✓ Missatge mostrat: {missatge}")
+
+
+# =============================================================================
 # INICI DEL PROGRAMA
 # =============================================================================
 
@@ -95,6 +129,10 @@ if __name__ == "__main__":
         'sequencia_personalitzada': sequencia_personalitzada,
         'emergencia': emergencia,
         'test_complet': test_complet,
+        # Funcions interactives
+        'sequencia_amb_temps_personalitzat': sequencia_amb_temps_personalitzat,
+        'parpelleig_personalitzat': parpelleig_personalitzat,
+        'missatge_personalitzat': missatge_personalitzat,
     }
     
     # Crear i iniciar el semàfor

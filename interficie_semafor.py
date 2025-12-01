@@ -35,7 +35,7 @@ class SemaforGUI:
         # Crear la finestra
         self.finestra = tk.Tk()
         self.finestra.title("🚦 Semàfor Interactiu")
-        self.finestra.geometry("400x650")
+        self.finestra.geometry("480x700")
         self.finestra.resizable(False, False)
         self.finestra.configure(bg='#2C3E50')
         
@@ -169,6 +169,36 @@ class SemaforGUI:
                 bd=3
             )
             boto.pack(side='left', padx=5)
+        
+        # Frame per a botons interactius
+        frame_interactiu = tk.Frame(self.finestra, bg='#2C3E50')
+        frame_interactiu.pack(pady=5)
+        
+        COLOR_INTERACTIU = '#9B59B6'  # Morat per botons interactius
+        
+        botons_interactius = [
+            ("⏱️ Temps Custom", COLOR_INTERACTIU, lambda: self._executar_funcio('sequencia_amb_temps_personalitzat')),
+            ("✨ Parpelleig Custom", COLOR_INTERACTIU, lambda: self._executar_funcio('parpelleig_personalitzat')),
+            ("💬 Missatge", COLOR_INTERACTIU, lambda: self._executar_funcio('missatge_personalitzat')),
+        ]
+        
+        for text, color, comando in botons_interactius:
+            boto = tk.Button(
+                frame_interactiu,
+                text=text,
+                font=('Arial', 10, 'bold'),
+                bg=color,
+                fg='white',
+                activebackground=color,
+                activeforeground='white',
+                command=comando,
+                width=15,
+                height=1,
+                cursor='hand2',
+                relief='raised',
+                bd=3
+            )
+            boto.pack(side='left', padx=3)
     
     def _crear_etiqueta(self):
         """Crea l'etiqueta informativa."""
@@ -278,6 +308,93 @@ class SemaforGUI:
         """
         self.etiqueta.config(text=missatge)
         self.finestra.update()
+    
+    def demanar_numero(self, pregunta, default=1, minim=1, maxim=10):
+        """
+        Mostra un diàleg per demanar un número a l'usuari.
+        
+        Args:
+            pregunta: Text de la pregunta
+            default: Valor per defecte
+            minim: Valor mínim permès
+            maxim: Valor màxim permès
+        
+        Returns:
+            int: El número introduït per l'usuari
+        """
+        from tkinter import simpledialog
+        
+        while True:
+            resultat = simpledialog.askinteger(
+                "Entrada de Dades",
+                pregunta,
+                initialvalue=default,
+                minvalue=minim,
+                maxvalue=maxim,
+                parent=self.finestra
+            )
+            
+            # Si l'usuari cancel·la, retornar el valor per defecte
+            if resultat is None:
+                self.mostrar_text(f"⚠️ Cancel·lat. S'usa valor per defecte: {default}")
+                return default
+            
+            self.mostrar_text(f"✓ Has introduït: {resultat}")
+            return resultat
+    
+    def demanar_text(self, pregunta, default=""):
+        """
+        Mostra un diàleg per demanar un text a l'usuari.
+        
+        Args:
+            pregunta: Text de la pregunta
+            default: Text per defecte
+        
+        Returns:
+            str: El text introduït per l'usuari
+        """
+        from tkinter import simpledialog
+        
+        resultat = simpledialog.askstring(
+            "Entrada de Dades",
+            pregunta,
+            initialvalue=default,
+            parent=self.finestra
+        )
+        
+        if resultat is None or resultat == "":
+            self.mostrar_text(f"⚠️ Cancel·lat o buit")
+            return default
+        
+        self.mostrar_text(f"✓ Has escrit: {resultat}")
+        return resultat
+    
+    def triar_color(self):
+        """
+        Mostra un diàleg per triar un color del semàfor.
+        
+        Returns:
+            str: El color triat ("verd", "groc" o "vermell")
+        """
+        from tkinter import simpledialog
+        
+        resultat = simpledialog.askstring(
+            "Triar Color",
+            "Quin color vols encendre?\n\nOpcions: verd, groc, vermell",
+            initialvalue="verd",
+            parent=self.finestra
+        )
+        
+        # Validar que el color és correcte
+        colors_valids = ['verd', 'groc', 'vermell']
+        
+        if resultat and resultat.lower() in colors_valids:
+            color = resultat.lower()
+            self.mostrar_text(f"✓ Has triat: {color}")
+            return color
+        else:
+            self.mostrar_text("⚠️ Color no vàlid. S'usa 'verd'")
+            return "verd"
     
     def encendre_dos_llums(self, color1, color2):
         """
