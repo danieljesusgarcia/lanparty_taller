@@ -128,6 +128,7 @@ Aquestes tasques introdueixen **interacció amb l'usuari** mitjançant diàlegs:
 1. **Preparació tècnica**:
    - Verificar Python i Tkinter en tots els ordinadors
    - Distribuir fitxers: `semafor_alumnes.py`, `interficie_semafor.py`, `GUIA_ALUMNES_SEMAFOR.md`
+   - **Opcional**: Configurar sistema per enviar fitxers als alumnes (veure secció "📤 Compartir l'Aplicació")
 
 2. **Introducció teòrica (10 min)**:
    - Què és un objecte? (exemple: comandament a distància)
@@ -218,6 +219,155 @@ Combinar tots els mètodes per crear un espectacle visual
 - **Notable (7-8)**: 6 tasques bàsiques + almenys 1 interactiva
 - **Bé (6-7)**: Totes 6 tasques bàsiques correctes
 - **Suficient (5-6)**: Almenys tasques 1-4 correctes
+
+## 📤 Compartir l'Aplicació amb els Alumnes
+
+Els alumnes poden emportar-se el seu treball a casa. Aquí tens diverses opcions:
+
+### Opció 1: Comprimir els Fitxers (Més Senzill) ✅
+
+**Crear un ZIP per cada alumne:**
+```bash
+# Crear carpeta amb els fitxers de l'alumne
+mkdir semafor_alumne
+cp semafor_alumnes.py interficie_semafor.py GUIA_ALUMNES_SEMAFOR.md semafor_alumne/
+
+# Comprimir
+zip -r semafor_alumne.zip semafor_alumne/
+```
+
+**Els alumnes necessitaran a casa:**
+- Python 3.7+ instal·lat
+- Tkinter (`sudo apt-get install python3-tk` a Linux)
+- Descomprimir i executar: `python3 semafor_alumnes.py`
+
+### Opció 2: Script Launcher (Recomanat)
+
+**Crear un launcher executable:**
+```bash
+# Crear script
+cat > executar_semafor.sh << 'EOF'
+#!/bin/bash
+cd "$(dirname "$0")"
+python3 semafor_alumnes.py
+EOF
+
+# Donar permisos
+chmod +x executar_semafor.sh
+```
+
+Ara poden executar amb doble clic a Linux!
+
+### Opció 3: Enviar per Correu Electrònic 📧
+
+**Preparar el paquet:**
+```bash
+# Comprimir tots els fitxers necessaris
+zip -r semafor_taller.zip semafor_alumnes.py interficie_semafor.py GUIA_ALUMNES_SEMAFOR.md
+
+# Enviar amb client de correu o adjuntar a email
+```
+
+**Plantilla d'email per als alumnes:**
+
+```
+Assumpte: 🚦 El teu Semàfor Interactiu del Taller
+
+Hola [NOM],
+
+Adjunt trobaràs el codi del semàfor que has programat avui al taller!
+
+📦 Contingut del ZIP:
+- semafor_alumnes.py (el teu codi!)
+- interficie_semafor.py (la interfície gràfica)
+- GUIA_ALUMNES_SEMAFOR.md (guia de referència)
+
+🏠 Per executar-lo a casa:
+1. Assegura't que tens Python 3.7+ instal·lat
+2. Descomprimeix el fitxer
+3. Obre una terminal a la carpeta
+4. Executa: python3 semafor_alumnes.py
+
+💡 Idees per continuar:
+- Prova els reptes extra de la guia
+- Crea noves seqüències personalitzades
+- Mostra-ho a família i amics!
+
+Bones pràctiques! 🚀
+
+[PROFESSOR]
+```
+
+### Opció 4: Plataforma Educativa (Moodle/Classroom)
+
+**Si tens plataforma educativa:**
+1. Pujar el ZIP a la plataforma
+2. Els alumnes el descarreguen directament
+3. Pots afegir un fòrum per compartir seqüències creatives
+
+### Opció 5: USB o Xarxa Local
+
+**Copiar directament:**
+```bash
+# Copiar a USB de l'alumne
+cp semafor_alumnes.py interficie_semafor.py GUIA_ALUMNES_SEMAFOR.md /media/usb/
+
+# O compartir per xarxa local amb Python
+python3 -m http.server 8000
+# Els alumnes descarreguen des de: http://[IP_PROFESSOR]:8000
+```
+
+### 📝 Instruccions per als Alumnes (README a Casa)
+
+Crea un fitxer `INSTRUCCIONS_CASA.txt`:
+
+```
+🚦 COM EXECUTAR EL TEU SEMÀFOR A CASA
+====================================
+
+1. INSTAL·LAR PYTHON (si no el tens):
+   - Descarrega de: https://www.python.org/downloads/
+   - Marca "Add Python to PATH" durant la instal·lació
+
+2. VERIFICAR INSTAL·LACIÓ:
+   python3 --version
+   
+3. EXECUTAR EL PROGRAMA:
+   python3 semafor_alumnes.py
+
+4. SI DONA ERROR DE TKINTER (Linux):
+   sudo apt-get install python3-tk
+
+5. CONTINUAR PROGRAMANT:
+   - Obre semafor_alumnes.py amb qualsevol editor de text
+   - Consulta GUIA_ALUMNES_SEMAFOR.md per idees
+   - Prova els reptes extra!
+
+Qualsevol dubte: [EMAIL_PROFESSOR]
+```
+
+### 🎁 Bonus: Certificat de Participació
+
+Pots crear un certificat personalitzat:
+
+```python
+# certificat_generator.py
+def crear_certificat(nom_alumne):
+    return f"""
+    ╔══════════════════════════════════════════╗
+    ║     🏆 CERTIFICAT DE PARTICIPACIÓ 🏆    ║
+    ╠══════════════════════════════════════════╣
+    ║                                          ║
+    ║   Certifiquem que {nom_alumne:^20}   ║
+    ║   ha completat satisfactòriament el      ║
+    ║   TALLER DE PROGRAMACIÓ:                 ║
+    ║   🚦 Semàfor Interactiu amb Python       ║
+    ║                                          ║
+    ║   Data: Desembre 2025                    ║
+    ║                                          ║
+    ╚══════════════════════════════════════════╝
+    """
+```
 
 ## 🛠️ Resolució de Problemes
 
